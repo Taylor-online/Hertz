@@ -27,25 +27,25 @@
     <div class="row">
         <hr href="#logo">
           <hr style="height: 3px; color:#ffd100; background-color: #ffd100; width: 320px; border-radius: 5px;" class="trait">
-           <img src="Hertz/1200px-Hertz-Logo.svg.png" alt="logo hertz" class="logo" width="250px"> </hr>
+           <a href="http://localhost/hertz/index2.php"><img src="Hertz/1200px-Hertz-Logo.svg.png" alt="logo hertz" class="logo" width="250px"> </hr></a>
            <hr style="height: 3px; color: #ffd100; background-color:#ffd100; width: 920px; border-radius: 5px;" class="trait"></hr>
 
             </a>
             </div>
         </div>
     <div class="container-fluid">
-   <li><a> <div class="clients clients2"><h1>Clients</h1></div></li></a>
+   <li><a> <div class="clients clients2"><h2>Clients</h2></li></a></div>
 
     <form method='GET'>
     
-
-        <div class="c1"><input type="text" name="nom_cli" placeholder="nom"class="fontcolo">
+        
+        <input type="text" name="nom_cli" placeholder="nom"class="fontcolo">
         <input type="text" name="prenom_cli" placeholder="prenom"class="fontcolo">
         <input type="text" name="adresse_cli" placeholder="adresse"class="fontcolo">
         <input type="number" name="code" placeholder="code_postal"class="fontcolo">
         <input type="text" name="ville_cli" placeholder="ville"class="fontcolo">       
         <button type="submit" value="ajouter" name="action"class="ajouter">ajouter</button>
-       
+        
 
     </form>
     <?php 
@@ -90,6 +90,7 @@ if(isset($_GET['action']) && !empty($_GET['nom_cli']) && !empty($_GET['prenom_cl
 ?>
     <br><br>
     <form method='GET'>
+        
         <input type="number" name="id" placeholder="Id client"class="fontcolo">
         <input type="text" name="nom" placeholder="nom"class="fontcolo">
         <input type="text" name="prenom" placeholder="prenom"class="fontcolo">
@@ -150,7 +151,7 @@ if(isset($_GET['action']) && !empty($_GET['nom_cli']) && !empty($_GET['prenom_cl
     <?php 
  $recuperation = $db->query('SELECT * FROM client');
  while ($client = $recuperation->fetch()){
- echo "<form><div>
+ echo "<form><div class='fontcolo2'>
  <input type='number' name='id' value='".$client['id_client']."'>
  <input type='text' name='nom' value='".$client['nom_client']."'>
  <input type='text' name='prenom' value='".$client['prenom_client']."' >
@@ -159,14 +160,13 @@ if(isset($_GET['action']) && !empty($_GET['nom_cli']) && !empty($_GET['prenom_cl
  <input type='text' name='ville' value='".$client['ville_client']."' >
  <button type='submit' value='modifier' name='update'>Modifier</button>
  <button type='submit' value='delete'name='suprime'>suprimer</button>
-
 </form>
 </div>";
 }
 
 ?>
     <br><br>
-    <li><a> <h1 class="titrevehicule">Véhicule</h1></li></a>
+    <li><a> <h2 class="titrevehicule">Véhicule</h2></li></a>
     <form method='GET'>
 
         <input type="text" name="immatriculation" placeholder="immatriculation"class="fontcolo">
@@ -179,7 +179,7 @@ if(isset($_GET['action']) && !empty($_GET['nom_cli']) && !empty($_GET['prenom_cl
      
 if(isset($_GET['action']) && !empty($_GET['immatriculation']) && !empty($_GET['marque_vehicule'])){
 
-$ajouter = $db->prepare('INSERT INTO vehicule (immatriculation_voiture, marque_vehicule) VALUES (:plaque,:marque)');
+$ajouter = $db->prepare('INSERT INTO vehicule (immatriculation_voiture, marque_vehicule,vehicule_dispo) VALUES (:plaque,:marque,1)');
 $ajouter->bindParam(':plaque', $_GET['immatriculation'], 
 PDO::PARAM_STR);
 $ajouter->bindParam(':marque', $_GET['marque_vehicule'],
@@ -250,26 +250,25 @@ $estceok= $ajouter->execute();
     <?php 
  $recuperation = $db->query('SELECT * FROM vehicule');
  while ($vehicule = $recuperation->fetch()){
- echo "<div><form>
+ echo "<div class='fontcolo2'><form>
  <input type='number' name='id' value='".$vehicule['id_vehicule']."'>
  <input type='text' name='immatriculation' value='".$vehicule['immatriculation_voiture']."'>
  <input type='text' name='marque' value='".$vehicule['marque_vehicule']."'>
  <button type='submit' value='modifier' name='action_deux'>modifier</button>
- <button type='submit' value='delete' name='action_un'>suprimer</button>
-
+ <button type='submit' value='delete' name='action_un'>supprimer</button>
 </form>
 </div>";
 
 }
 ?>
-<h1>louer</h1>
+<li><a> <div class="clients"><h2>louer</h2></li></a></div>
 <form method='GET'>
-        <input type="number" name="id" placeholder="id_client">
-        <input type="number" name="idd" placeholder="id_vahicule">
-        <input type="date" name="dateone">
-        <input type="date" name="datetwo">
-        <button type="submit" value="ajouter" name="action">ajouter</button>
-       
+<input type="number" name="id" placeholder="id_client" class="fontcolo ">
+<input type="number" name="idd" placeholder="id_vehicule"class="fontcolo">
+<input type="date" name="dateone"class="fontcolo">
+<input type="date" name="datetwo"class="fontcolo">
+<button type="submit" value="ajouter"name="action" class="ajouter">ajouter</button>
+
     </form>
 
 <?php
@@ -297,7 +296,26 @@ if(isset($_GET['action']) && !empty($_GET['id']) && !empty($_GET['idd'])  && !em
             echo 'Veuillez recommencer svp, une erreur est survenue';
         }
 }
- 
+?>
+<li><a> <div class="clients clients2"><h2>Voiture disponible</h2></li></a></div>
+<?php
+// vehicule dispo
+
+$maj_vehicule=$db->prepare('UPDATE vehicule SET vehicule_dispo =0 WHERE id_vehicule=:idd');
+$maj_vehicule->bindParam(':idd', $_GET['idd'],
+PDO::PARAM_STR);
+$maj_vehicule->execute();
+
+$dispo = $db->prepare('SELECT * FROM vehicule WHERE  vehicule_dispo = 1');
+$dispo->execute();
+$dispo = $dispo->fetchAll(PDO::FETCH_ASSOC);
+
+foreach($dispo as $info){
+  echo "<br/><div class='osef'>".$info['id_vehicule']."  immatriculation est : ".$info['immatriculation_voiture']." marque: ".$info['marque_vehicule']."<br/></div>";
+}
+?>
+<li><a> <div class="clients clients2"><h2>Voiture disponible</h2></li></a></div>
+<?php
 $lister = $db->prepare('SELECT * FROM client
 INNER JOIN louer ON client.id_client = louer.id_client
 INNER JOIN vehicule ON louer.id_vehicule = vehicule.id_vehicule');
@@ -309,11 +327,11 @@ $lister = $lister->fetchAll(PDO::FETCH_ASSOC);
 //var_dump($lister);
 //ON FAIT LA BOUCLE QUI AFFICHE TOUS LES RESULTATS
 foreach($lister as $info){
-   echo "<br/>".$info['nom_client']." a loué ".$info['marque_vehicule']." du ".$info['date_debut']." au ".$info['date_defin'];
+   echo "<br/><div class='osef'>".$info['nom_client']." a loué ".$info['marque_vehicule']." du ".$info['date_debut']." au ".$info['date_defin'];
 }
-
-
 ?>
+
+
 
 </body></center>
 </html>

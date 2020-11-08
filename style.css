@@ -4,25 +4,28 @@ body{
     padding: 0;
 }
 
-.connection{
-
-    position: absolute;
-    left: 1000px;
-    margin-top: 12px;
-    color:  #FFC312;
+.connection h6{
+display: flex;
+    margin-top: 30px;
+    margin-left: 40px;
+    color:  #000000;
     cursor: pointer;
     font-size: 20px;
+    
     }
 
-
 .header{
-    height: 110vh;
-    max-height: 1900px;
-    background-image: url("Hertz/lexustest.png");
-    /*background: lightgrey;*/
-    background-size: cover;
+  background-image: url("hertz/lexustest.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+
 }
 
+.descend{
+  margin-bottom: 250px;
+}
 label {
     display: block;
     font: 1rem 'Fira Sans', sans-serif;
@@ -75,15 +78,15 @@ label {
 .titrevoiture h2{
     font-size: 60px;
     text-align: center;
-    margin-bottom: 80px;
+    margin-bottom: px;
     color:#ffd100;
-
     -webkit-text-stroke: 1px;
+    font-family: 'Fira Sans', sans-serif;
 }
 
 
     #marques{
-margin-top: 150px;
+margin-top: 50px;
     }
 
     .imgfull{
@@ -95,12 +98,18 @@ margin-top: 150px;
 }
 
 .trait{
-    margin-top: 55px;
+    margin-top: 30px;
+    width: 320px;
+    height: 3px;
+     color:#ffd100;
+      background-color: #ffd100;
+        border-radius: 5px;
 }
 
 .trait2{
   margin-top: 55px;
 }
+
 
 .navbar-form{
   width: 250px;
@@ -131,8 +140,8 @@ margin-top: 150px;
 
 
 
-
 #carouselfull {
+  margin-top: 150px;
     width: 100%;
     height: 100vh;
   }
@@ -293,6 +302,11 @@ margin-top: 150px;
     transform-origin: 0 0;
   }
   
+
+
+
+
+
   .get-in-touch {
     max-width: 800px;
     margin: 50px auto;
@@ -564,11 +578,11 @@ margin-top: 150px;
 }
 .social-icons a.linkedin:hover
 {
-  background-color:#007bb6
+  background-color:#1695fd
 }
 .social-icons a.dribbble:hover
 {
-  background-color:#ea4c89
+  background-color:#e48100
 }
 @media (max-width:767px)
 {
@@ -578,4 +592,70 @@ margin-top: 150px;
     margin-right:0;
     font-weight:600
   }
+}
+
+
+@media (max-width:1024px)
+{
+.logo{
+  width: 20px;
+}
+  .trait{
+    width: 100vw;
+    max-width: 1200px;
+    margin: auto;
+    margin-top:20px;
+  }
+#vehicule{
+    display: flex;
+    width: 100%;
+    height: auto;
+  }
+.header{
+  width: 100%;
+  height: auto;
+}
+#carouselfull{
+width: 100%;
+height: auto;
+}
+.descend{
+margin-top: 200px;
+}
+.example .fadedbox {
+  background-color: #3b3b3b;
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #fff;
+  -webkit-transition: all 300ms ease-out;
+  -moz-transition: all 300ms ease-out;
+  -o-transition: all 300ms ease-out;
+  -ms-transition: all 300ms ease-out;
+  transition: all 300ms ease-out;
+  opacity: 0;
+  width: 100%;
+  height: 100px;
+  padding: 130px 20px;
+  }
+}
+
+@media (max-width:600px)
+{
+  .example .fadedbox {
+    background-color: #3b3b3b;
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #fff;
+    -webkit-transition: all 300ms ease-out;
+    -moz-transition: all 300ms ease-out;
+    -o-transition: all 300ms ease-out;
+    -ms-transition: all 300ms ease-out;
+    transition: all 300ms ease-out;
+    opacity: 0;
+    width: 100%;
+    height: 100px;
+    padding: 130px 20px;
+    }
 }

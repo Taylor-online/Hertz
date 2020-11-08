@@ -1,3 +1,10 @@
+body{
+    background-image: url(../hertz/Hertz/pexels-matt-hardy-2658450.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+}
 
 .logo{
     cursor: pointer;
@@ -8,12 +15,14 @@
     margin-top: 55px;
 }
 
-.clients{
+
+.clients h2{
     background:-webkit-linear-gradient(rgb(250, 225, 4), rgb(255, 123, 0));
     background-clip:text;
     -webkit-background-clip:text;
     color:transparent;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
+    font-size: 60px ;
 } 
 
 
@@ -24,7 +33,7 @@ li a {
     padding: 0 10px;
     text-align: center;
     font-size: 1.3em;
-    color: #444444;
+    color: #ffae00;
     text-transform: uppercase;
 }
 li a:after {
@@ -38,7 +47,7 @@ li a:after {
 }
 li a:hover:after {
     width: 100%;
-    background: #444;
+    background: rgb(255, 208, 0);
 }
 
 
@@ -75,6 +84,7 @@ li a:hover:after {
 
 }
 
+
 .titrevehicule{
     margin-top: 70px;
     margin-bottom: 40px;
@@ -82,4 +92,44 @@ li a:hover:after {
     background-clip:text;
     -webkit-background-clip:text;
     color:transparent;
+    font-size: 60px;
 }
+
+.fontcolo2 input{
+    color: black;
+    background: linear-gradient(rgb(250, 225, 4), rgb(255, 123, 0));
+    border-radius: 7px;
+    
+}
+
+.fontcolo2 button[type=submit]
+{
+    border: none;
+    color: white;
+    padding: 12px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border-radius: 10px;
+    cursor:pointer;
+}
+
+.fontcolo2 button[type=submit]
+ {
+    background-color: white; 
+    color: black; 
+    border: 2px solid #ffd100;
+  }
+
+  .fontcolo2:hover button[type=submit] {
+    background: linear-gradient(rgb(250, 225, 4), rgb(255, 123, 0));
+    color: white;
+  }
+
+  .osef{
+      color: white;
+  }
